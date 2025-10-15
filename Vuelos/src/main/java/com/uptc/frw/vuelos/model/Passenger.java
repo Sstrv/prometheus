@@ -11,7 +11,7 @@ public class Passenger {
     private long id;
     @Column(name = "id_reserva",insertable = false,updatable = false)
     private long idReserve;
-    @Column(name = "id_persona")
+    @Column(name = "id_persona",insertable = false,updatable = false)
     private long idPerson;
     @OneToOne(mappedBy = "passenger")
     private BoardingTicket boardingTicket;
