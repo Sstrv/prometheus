@@ -19,6 +19,7 @@ public class BoardingTicket {
     private long idSeat;
     @Column(name = "fecha_de_embarque")
     private String boardingDate;
+
     @OneToOne
     @JoinColumn(name = "id_pasajero")
     private Passenger passenger;
