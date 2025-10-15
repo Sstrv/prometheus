@@ -21,6 +21,9 @@ public class Reserve {
     private long idFlight;
     @OneToMany(mappedBy = "reserve")
     private List<Passenger> passengerList;
+    @ManyToOne
+    @JoinColumn(name = "id_persona")
+    private Person person;
 
     public List<Passenger> getPassengerList() {
         return passengerList;
@@ -29,11 +32,6 @@ public class Reserve {
     public void setPassengerList(List<Passenger> passengerList) {
         this.passengerList = passengerList;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "id_persona")
-    private Person person;
-
 
     public Reserve() {
     }

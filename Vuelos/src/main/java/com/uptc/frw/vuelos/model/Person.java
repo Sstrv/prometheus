@@ -21,6 +21,12 @@ public class Person {
     private String phone;
     @OneToOne(mappedBy = "person")
     private BoardingTicket boardingTicket;
+    @OneToOne(mappedBy = "person")
+    private Passenger passenger;
+    @OneToMany(mappedBy = "person")
+    private List<Reserve> reserves;
+    @OneToMany(mappedBy = "person")
+    private List<CreditCard> creditCards;
 
     public BoardingTicket getBoardingTicket() {
         return boardingTicket;
@@ -29,13 +35,6 @@ public class Person {
     public void setBoardingTicket(BoardingTicket boardingTicket) {
         this.boardingTicket = boardingTicket;
     }
-
-    @OneToOne(mappedBy = "person")
-    private Passenger passenger;
-    @OneToMany(mappedBy = "person")
-    private List<Reserve> reserves;
-    @OneToMany(mappedBy = "person")
-    private List<CreditCard> creditCards;
     public List<CreditCard> getCreditCards() {
         return creditCards;
     }
