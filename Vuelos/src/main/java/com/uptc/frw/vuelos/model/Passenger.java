@@ -14,6 +14,10 @@ public class Passenger {
     @Column(name = "id_persona")
     private long idPerson;
 
+    @OneToOne
+    @JoinColumn(name = "id_persona")
+    private Person person;
+
     public Passenger() {
     }
     public long getId() {
@@ -34,6 +38,15 @@ public class Passenger {
     public void setIdPerson(long idPerson) {
         this.idPerson = idPerson;
     }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public String toString() {
         return "Passenger{" +

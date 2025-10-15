@@ -9,7 +9,7 @@ public class CreditCard {
     @Column(name = "id_tarjeta")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "id_persona")
+    @Column(name = "id_persona",insertable = false,updatable = false)
     private long idPerson;
     @Column(name = "procesador_de_pago")
     private String paymentProcessor;
@@ -19,6 +19,11 @@ public class CreditCard {
     private int monthValidity;
     @Column(name = "anio_vigencia")
     private int yearValidity;
+
+    @ManyToOne
+    @JoinColumn(name = "id_persona")
+    private Person person;
+
 
     public CreditCard() {
     }
@@ -69,6 +74,14 @@ public class CreditCard {
 
     public void setYearValidity(int yearValidity) {
         this.yearValidity = yearValidity;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     @Override

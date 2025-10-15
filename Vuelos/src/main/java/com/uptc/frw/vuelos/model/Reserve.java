@@ -18,6 +18,11 @@ public class Reserve {
     @Column(name = "id_vuelo")
     private long idFlight;
 
+    @ManyToOne
+    @JoinColumn(name = "id_persona")
+    private Person person;
+
+
     public Reserve() {
     }
     public long getId() {
@@ -50,6 +55,15 @@ public class Reserve {
     public void setIdFlight(long idFlight) {
         this.idFlight = idFlight;
     }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public String toString() {
         return "Reserves{" +
