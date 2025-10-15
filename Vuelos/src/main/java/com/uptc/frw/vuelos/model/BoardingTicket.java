@@ -25,6 +25,9 @@ public class BoardingTicket {
     @OneToOne
     @JoinColumn(name = "id_persona")
     private Person person;
+    @ManyToOne
+    @JoinColumn(name = "id_asiento")
+    private Seat seat;
 
     public Person getPerson() {
         return person;
@@ -42,9 +45,6 @@ public class BoardingTicket {
         this.passenger = passenger;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_asiento")
-    private Seat seat;
 
     public BoardingTicket() {
     }

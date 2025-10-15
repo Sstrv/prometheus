@@ -2,6 +2,8 @@ package com.uptc.frw.vuelos.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "avion")
 public class Airplane {
@@ -16,6 +18,8 @@ public class Airplane {
     @Column(name = "tipo_de_avion")
     private String airplaneType;
 
+    @OneToMany(mappedBy = "airplane")
+    private List<Seat> seat;
     public Airplane() {
     }
 
