@@ -17,9 +17,27 @@ public class Airplane {
     private long seatsNumber;
     @Column(name = "tipo_de_avion")
     private String airplaneType;
-
+    @OneToMany(mappedBy = "departureAirport")
+    private List<Flight> departureFlights;
     @OneToMany(mappedBy = "airplane")
     private List<Seat> seat;
+
+    public List<Flight> getDepartureFlights() {
+        return departureFlights;
+    }
+
+    public void setDepartureFlights(List<Flight> departureFlights) {
+        this.departureFlights = departureFlights;
+    }
+
+    public List<Seat> getSeat() {
+        return seat;
+    }
+
+    public void setSeat(List<Seat> seat) {
+        this.seat = seat;
+    }
+
     public Airplane() {
     }
 
