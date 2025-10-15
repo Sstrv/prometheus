@@ -15,10 +15,14 @@ public class BoardingTicket {
     private long idPassenger;
     @Column(name = "id_vuelo")
     private long idFlight;
-    @Column(name = "id_asiento ")
+    @Column(name = "id_asiento ", insertable = false, updatable = false)
     private long idSeat;
     @Column(name = "fecha_de_embarque")
     private String boardingDate;
+
+    @ManyToOne
+    @JoinColumn(name = "id_asiento")
+    private Seat seat;
 
     public BoardingTicket() {
     }
@@ -58,6 +62,15 @@ public class BoardingTicket {
     public void setBoardingDate(String boardingDate) {
         this.boardingDate = boardingDate;
     }
+
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
+    }
+
     @Override
     public String toString() {
         return "BoardingTicket{" +
