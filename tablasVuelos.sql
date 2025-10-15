@@ -117,7 +117,7 @@ CREATE TABLE asientos (
   planta              NUMBER(2) NOT NULL,
   id_avion            NUMBER(10) NOT NULL,
   CONSTRAINT pk_asientos PRIMARY KEY (id_asiento),
-  CONSTRAINT fk_asientos_vuelo FOREIGN KEY (id_avion)
+  CONSTRAINT fk_asientos_avion FOREIGN KEY (id_avion)
     REFERENCES avion (id_avion)
 );
 
