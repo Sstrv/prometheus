@@ -19,6 +19,10 @@ public class Passenger {
     @JoinColumn(name = "id_reserva")
     private Reserve reserve;
 
+    @OneToOne
+    @JoinColumn(name = "id_persona")
+    private Person person;
+
     public Reserve getReserve() {
         return reserve;
     }
@@ -34,10 +38,6 @@ public class Passenger {
     public void setBoardingTicket(BoardingTicket boardingTicket) {
         this.boardingTicket = boardingTicket;
     }
-
-    @OneToOne
-    @JoinColumn(name = "id_persona")
-    private Person person;
 
     public Passenger() {
     }
