@@ -1,9 +1,8 @@
 package com.uptc.frw.vuelos.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "aeropuerto")
@@ -12,6 +11,7 @@ public class Airport {
 //    Attributes
     @Id
     @Column(name = "id_aeropuerto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idAirport;
 
     @Column(name = "nombre")
@@ -22,6 +22,12 @@ public class Airport {
 
     @Column(name = "pais")
     private String airportCountry;
+
+    @OneToMany(mappedBy = "departureAirport")
+    private List<Flight> departureFlights;
+
+    @OneToMany(mappedBy = "arrivalAirport")
+    private List<Flight> arrivalFlights;
 
 //    Constructor
     public Airport() {
@@ -60,7 +66,23 @@ public class Airport {
         this.airportCountry = airportCountry;
     }
 
-//    toString()
+    public List<Flight> getDepartureFlights() {
+        return departureFlights;
+    }
+
+    public void setDepartureFlights(List<Flight> departureFlights) {
+        this.departureFlights = departureFlights;
+    }
+
+    public List<Flight> getArrivalFlights() {
+        return arrivalFlights;
+    }
+
+    public void setArrivalFlights(List<Flight> arrivalFlights) {
+        this.arrivalFlights = arrivalFlights;
+    }
+
+    //    toString()
     @Override
     public String toString() {
         return "Airport{" +
