@@ -1,3 +1,8 @@
+create user vuelos identified by vuelos default tablespace USERS temporary tablespace TEMP;
+GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW, CREATE SEQUENCE, CREATE SYNONYM, CREATE PROCEDURE, CREATE TRIGGER 
+TO vuelos;
+ALTER USER vuelos QUOTA UNLIMITED ON USERS;
+CONNECT vuelos/vuelos;
 -- =========================
 -- AEROPUERTO
 -- =========================
