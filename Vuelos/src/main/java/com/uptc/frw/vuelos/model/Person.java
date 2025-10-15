@@ -19,6 +19,16 @@ public class Person {
     private String address;
     @Column(name = "telefono")
     private String phone;
+    @OneToOne(mappedBy = "person")
+    private BoardingTicket boardingTicket;
+
+    public BoardingTicket getBoardingTicket() {
+        return boardingTicket;
+    }
+
+    public void setBoardingTicket(BoardingTicket boardingTicket) {
+        this.boardingTicket = boardingTicket;
+    }
 
     @OneToOne(mappedBy = "person")
     private Passenger passenger;
