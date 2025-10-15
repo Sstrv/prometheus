@@ -11,13 +11,15 @@ public class Airplane {
     @Column(name = "id_avion")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idAirplane;
+
     @Column(name = " codigo_avion")
     private String airplaneCode;
     @Column(name = "num_plazas")
     private long seatsNumber;
     @Column(name = "tipo_de_avion")
     private String airplaneType;
-    @OneToMany(mappedBy = "departureAirport")
+
+    @OneToMany(mappedBy = "airplane")
     private List<Flight> departureFlights;
     @OneToMany(mappedBy = "airplane")
     private List<Seat> seat;

@@ -14,9 +14,9 @@ public class BoardingTicket {
     private long idPerson;
     @Column(name = "id_pasajero",insertable = false,updatable = false)
     private long idPassenger;
-    @Column(name = "id_vuelo")
+    @Column(name = "id_vuelo",insertable = false,updatable = false)
     private long idFlight;
-    @Column(name = "id_asiento ", insertable = false, updatable = false)
+    @Column(name = "id_asiento", insertable = false, updatable = false)
     private long idSeat;
     @Column(name = "fecha_de_embarque")
     private String boardingDate;
