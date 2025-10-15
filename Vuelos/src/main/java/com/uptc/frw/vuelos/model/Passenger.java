@@ -1,0 +1,47 @@
+package com.uptc.frw.vuelos.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name ="pasajero")
+public class Passenger {
+    @Id
+    @Column(name = "id_pasajero")
+    private long id;
+    @Column(name = "id_reserva ")
+    private long idReserve;
+    @Column(name = "id_persona")
+    private long idPerson;
+
+    public Passenger() {
+    }
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+    public long getIdReserve() {
+        return idReserve;
+    }
+    public void setIdReserve(long idReserve) {
+        this.idReserve = idReserve;
+    }
+    public long getIdPerson() {
+        return idPerson;
+    }
+    public void setIdPerson(long idPerson) {
+        this.idPerson = idPerson;
+    }
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "id=" + id +
+                ", idReserve=" + idReserve +
+                ", idPerson=" + idPerson +
+                '}';
+    }
+}
