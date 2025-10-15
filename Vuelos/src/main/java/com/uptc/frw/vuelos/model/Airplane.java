@@ -2,6 +2,8 @@ package com.uptc.frw.vuelos.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "avion")
 public class Airplane {
@@ -15,6 +17,8 @@ public class Airplane {
     private long seatsNumber;
     @Column(name = "tipo_de_avion")
     private String airplaneType;
+    @OneToMany(mappedBy = "airplane")
+    private List<Flight> flights;
 
     public Airplane() {
     }
@@ -49,6 +53,14 @@ public class Airplane {
 
     public void setAirplaneType(String airplaneType) {
         this.airplaneType = airplaneType;
+    }
+
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
+    public void setFlights(List<Flight> flights) {
+        this.flights = flights;
     }
 
     @Override
