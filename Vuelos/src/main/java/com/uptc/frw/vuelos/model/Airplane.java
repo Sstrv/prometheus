@@ -1,15 +1,13 @@
 package com.uptc.frw.vuelos.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "avion")
 public class Airplane {
     @Id
     @Column(name = "id_avion")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idAirplane;
     @Column(name = " codigo_avion")
     private String airplaneCode;
