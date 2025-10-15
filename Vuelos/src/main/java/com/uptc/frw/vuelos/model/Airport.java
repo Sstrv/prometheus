@@ -1,14 +1,26 @@
 package com.uptc.frw.vuelos.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "aeropuerto")
 public class Airport {
 
 //    Attributes
+    @Id
+    @Column(name = "id_aeropuerto")
     private long idAirport;
 
+    @Column(name = "nombre")
     private String airportName;
 
+    @Column(name = "localidad")
     private String airportLocation;
 
+    @Column(name = "pais")
     private String airportCountry;
 
 //    Constructor
