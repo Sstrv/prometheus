@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tarjeta_credito")
-public class creditCard {
+public class CreditCard {
     @Id
     @Column(name = "id_tarjeta")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class creditCard {
     @Column(name = "anio_vigencia")
     private int yearValidity;
 
-    public creditCard() {
+    public CreditCard() {
     }
 
     public long getId() {
