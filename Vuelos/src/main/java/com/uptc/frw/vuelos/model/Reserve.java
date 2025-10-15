@@ -2,6 +2,8 @@ package com.uptc.frw.vuelos.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "reserva")
 public class Reserve {
@@ -17,6 +19,21 @@ public class Reserve {
     private String reservesDate;
     @Column(name = "id_vuelo")
     private long idFlight;
+    @OneToMany(mappedBy = "reserve")
+    private List<Passenger> passengerList;
+
+    public List<Passenger> getPassengerList() {
+        return passengerList;
+    }
+
+    public void setPassengerList(List<Passenger> passengerList) {
+        this.passengerList = passengerList;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "id_persona")
+    private Person person;
+
 
     public Reserve() {
     }
@@ -50,6 +67,15 @@ public class Reserve {
     public void setIdFlight(long idFlight) {
         this.idFlight = idFlight;
     }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
     @Override
     public String toString() {
         return "Reserves{" +

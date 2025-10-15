@@ -9,15 +9,16 @@ public class Flight{
 //    Attributes
     @Id
     @Column(name = "id_vuelo")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idFlight;
 
-    @Column(name = "id_avion")
+    @Column(name = "id_avion", insertable = false, updatable = false)
     private long idAirplane;
 
-    @Column(name = "id_aeropuerto_origen")
+    @Column(name = "id_aeropuerto_origen", insertable = false, updatable = false)
     private long idDepartureAirport;
 
-    @Column(name = "id_aeropuerto_destino")
+    @Column(name = "id_aeropuerto_destino", insertable = false, updatable = false)
     private long idArrivalAirport;
 
     @Column(name = "codigo_de_vuelo")
@@ -34,6 +35,18 @@ public class Flight{
 
     @Column(name = "destino")
     private String arrival;
+
+    @ManyToOne
+    @JoinColumn(name = "id_aeropuerto_origen")
+    private Airport departureAirport;
+
+    @ManyToOne
+    @JoinColumn(name = "id_aeropuerto_destino")
+    private Airport arrivalAirport;
+
+    @ManyToOne
+    @JoinColumn(name = "id_avion")
+    private Airplane airplane;
 
 //    Constructor
     public Flight() {
@@ -112,7 +125,31 @@ public class Flight{
         this.arrival = arrival;
     }
 
-//    ToString
+    public Airport getDepartureAirport() {
+        return departureAirport;
+    }
+
+    public void setDepartureAirport(Airport departureAirport) {
+        this.departureAirport = departureAirport;
+    }
+
+    public Airport getArrivalAirport() {
+        return arrivalAirport;
+    }
+
+    public void setArrivalAirport(Airport arrivalAirport) {
+        this.arrivalAirport = arrivalAirport;
+    }
+
+    public Airplane getAirplane() {
+        return airplane;
+    }
+
+    public void setAirplane(Airplane airplane) {
+        this.airplane = airplane;
+    }
+
+    //    ToString
     @Override
     public String toString() {
         return "Flight{" +

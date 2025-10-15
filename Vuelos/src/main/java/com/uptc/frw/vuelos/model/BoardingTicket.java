@@ -9,9 +9,9 @@ public class BoardingTicket {
     @Column(name = "id_embarque")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
-    @Column(name = "id_persona ")
+    @Column(name = "id_persona",insertable = false,updatable = false)
     private long idPerson;
-    @Column(name = "id_pasajero")
+    @Column(name = "id_pasajero",insertable = false,updatable = false)
     private long idPassenger;
     @Column(name = "id_vuelo")
     private long idFlight;
@@ -19,6 +19,28 @@ public class BoardingTicket {
     private long idSeat;
     @Column(name = "fecha_de_embarque")
     private String boardingDate;
+    @OneToOne
+    @JoinColumn(name = "id_pasajero")
+    private Passenger passenger;
+    @OneToOne
+    @JoinColumn(name = "id_persona")
+    private Person person;
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
 
     @ManyToOne
     @JoinColumn(name = "id_asiento")
