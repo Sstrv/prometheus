@@ -22,7 +22,7 @@ public class Airplane {
     private List<Seat> seat;
     public Airplane() {
     }
-// probando
+
     public long getIdAirplane() {
         return idAirplane;
     }
