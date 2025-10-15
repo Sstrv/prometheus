@@ -13,6 +13,7 @@ public class Passenger {
     private long idReserve;
     @Column(name = "id_persona",insertable = false,updatable = false)
     private long idPerson;
+
     @OneToOne(mappedBy = "passenger")
     private BoardingTicket boardingTicket;
     @ManyToOne

@@ -2,8 +2,6 @@ package com.uptc.frw.vuelos.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "vuelos")
 public class Flight{
@@ -49,9 +47,6 @@ public class Flight{
     @ManyToOne
     @JoinColumn(name = "id_avion")
     private Airplane airplane;
-
-    @OneToMany(mappedBy = "flight")
-    private List<Reserve> reserve;
 
 //    Constructor
     public Flight() {

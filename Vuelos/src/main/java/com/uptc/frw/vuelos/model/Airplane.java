@@ -11,6 +11,7 @@ public class Airplane {
     @Column(name = "id_avion")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idAirplane;
+
     @Column(name = " codigo_avion")
     private String airplaneCode;
     @Column(name = "num_plazas")
@@ -19,10 +20,29 @@ public class Airplane {
     private String airplaneType;
 
     @OneToMany(mappedBy = "airplane")
+    private List<Flight> departureFlights;
+    @OneToMany(mappedBy = "airplane")
     private List<Seat> seat;
+
+    public List<Flight> getDepartureFlights() {
+        return departureFlights;
+    }
+
+    public void setDepartureFlights(List<Flight> departureFlights) {
+        this.departureFlights = departureFlights;
+    }
+
+    public List<Seat> getSeat() {
+        return seat;
+    }
+
+    public void setSeat(List<Seat> seat) {
+        this.seat = seat;
+    }
+
     public Airplane() {
     }
-// probando
+
     public long getIdAirplane() {
         return idAirplane;
     }
