@@ -1,11 +1,25 @@
 package com.uptc.frw.vuelos.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tarjeta_embarque")
 public class BoardingTicket {
+    @Id
+    @Column(name = "id_embarque")
     private long id ;
+    @Column(name = "id_persona ")
     private long idPerson;
+    @Column(name = "id_pasajero")
     private long idPassenger;
+    @Column(name = "id_vuelo")
     private long idFlight;
+    @Column(name = "id_asiento ")
     private long idSeat;
+    @Column(name = "fecha_de_embarque")
     private String boardingDate;
 
     public BoardingTicket() {
