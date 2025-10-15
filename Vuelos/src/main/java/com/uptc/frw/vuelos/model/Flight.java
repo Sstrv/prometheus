@@ -1,24 +1,38 @@
 package com.uptc.frw.vuelos.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "vuelos")
 public class Flight{
 
 //    Attributes
+    @Id
+    @Column(name = "id_vuelo")
     private long idFlight;
 
+    @Column(name = "id_avion")
     private long idAirplane;
 
+    @Column(name = "id_aeropuerto_origen")
     private long idDepartureAirport;
 
+    @Column(name = "id_aeropuerto_destino")
     private long idArrivalAirport;
 
+    @Column(name = "codigo_de_vuelo")
     private String flightCode;
 
+    @Column(name = "fecha_salida")
     private String departureDate;
 
+    @Column(name = "fecha_llegada")
     private String arrivalDate;
 
+    @Column(name = "origen")
     private String departure;
 
+    @Column(name = "destino")
     private String arrival;
 
 //    Constructor
