@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "reserva")
-public class Reserves {
+public class Reserve {
     @Id
     @Column(name = "id_reserva")
     private long id ;
@@ -20,7 +20,7 @@ public class Reserves {
     @Column(name = "id_vuelo")
     private long idFlight;
 
-    public Reserves() {
+    public Reserve() {
     }
     public long getId() {
         return id;
