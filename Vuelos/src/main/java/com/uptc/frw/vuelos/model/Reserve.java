@@ -11,7 +11,7 @@ public class Reserve {
     @Column(name = "id_reserva")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
-    @Column(name = "id_persona")
+    @Column(name = "id_persona",insertable = false,updatable = false)
     private long idPerson;
     @Column(name = "cantidad")
     private int quantity;
