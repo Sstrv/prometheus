@@ -9,6 +9,7 @@ public class BoardingTicket {
     @Column(name = "id_embarque")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
+
     @Column(name = "id_persona",insertable = false,updatable = false)
     private long idPerson;
     @Column(name = "id_pasajero",insertable = false,updatable = false)
@@ -29,26 +30,14 @@ public class BoardingTicket {
     @ManyToOne
     @JoinColumn(name = "id_asiento")
     private Seat seat;
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-    public Passenger getPassenger() {
-        return passenger;
-    }
-
-    public void setPassenger(Passenger passenger) {
-        this.passenger = passenger;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_vuelo")
+    private Flight flight;
 
 
     public BoardingTicket() {
     }
+
     public long getId() {
         return id;
     }
@@ -92,6 +81,30 @@ public class BoardingTicket {
 
     public void setSeat(Seat seat) {
         this.seat = seat;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 
     @Override
