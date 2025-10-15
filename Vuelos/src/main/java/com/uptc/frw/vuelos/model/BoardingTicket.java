@@ -71,6 +71,4 @@ public class BoardingTicket {
                 ", boardingDate='" + boardingDate + '\'' +
                 '}';
     }
-
-    //hola
 }
