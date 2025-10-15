@@ -18,6 +18,9 @@ public class Passenger {
     @ManyToOne
     @JoinColumn(name = "id_reserva")
     private Reserve reserve;
+    @OneToOne
+    @JoinColumn(name = "id_persona")
+    private Person person;
 
     @OneToOne
     @JoinColumn(name = "id_persona")
