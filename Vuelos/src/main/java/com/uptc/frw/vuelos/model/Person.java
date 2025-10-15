@@ -21,8 +21,6 @@ public class Person {
     private String phone;
     @OneToOne(mappedBy = "person")
     private BoardingTicket boardingTicket;
-
-
     @OneToOne(mappedBy = "person")
     private Passenger passenger;
     @OneToMany(mappedBy = "person")

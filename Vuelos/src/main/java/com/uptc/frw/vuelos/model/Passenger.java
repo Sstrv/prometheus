@@ -22,10 +22,6 @@ public class Passenger {
     @JoinColumn(name = "id_persona")
     private Person person;
 
-    @OneToOne
-    @JoinColumn(name = "id_persona")
-    private Person person;
-
     public Reserve getReserve() {
         return reserve;
     }
