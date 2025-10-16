@@ -20,7 +20,6 @@ public class ReserveService {
     @Autowired
     private FlightService flightService;
 
-
     public List<Reserve> findAllRepository(){
         return reserveRepository.findAll();
     }
@@ -45,5 +44,8 @@ public class ReserveService {
         }else{
             throw new RuntimeException("Registro no encontrado");
         }
+    }
+    public void deleteReserve(Long id){
+        reserveRepository.deleteById(id);
     }
 }

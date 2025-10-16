@@ -22,6 +22,7 @@ public class Reserve {
 
     @OneToMany(mappedBy = "reserve")
     private List<Passenger> passengerList;
+
     @ManyToOne
     @JoinColumn(name = "id_persona")
     private Person person;
