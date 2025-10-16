@@ -21,6 +21,10 @@ public class FlightService {
         return repo.findById(id).orElse(null);
     }
 
+    public Flight saveFlight(Flight flight){
+        return repo.save(flight);
+    }
+
     public Flight updateFlight(Flight flight){
         Flight newFlight = getFlightById(flight.getIdFlight());
         if (newFlight != null) {

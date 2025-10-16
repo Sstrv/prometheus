@@ -21,6 +21,10 @@ public class BoardingTicketService {
         return repo.findById(id).orElse(null);
     }
 
+    public BoardingTicket saveBoardingTicket(BoardingTicket bt){
+        return repo.save(bt);
+    }
+
     public BoardingTicket updateBoardingTicket(BoardingTicket bt){
         BoardingTicket newBt = getBoardingTicketById(bt.getId());
         if (newBt != null) {

@@ -21,6 +21,10 @@ public class PassengerService {
         return repo.findById(id).orElse(null);
     }
 
+    public Passenger savePassenger(Passenger passenger){
+        return repo.save(passenger);
+    }
+
     public Passenger updatePassenger(Passenger passenger){
         Passenger newPassenger = getPassengerById(passenger.getId());
         if (newPassenger != null) {
