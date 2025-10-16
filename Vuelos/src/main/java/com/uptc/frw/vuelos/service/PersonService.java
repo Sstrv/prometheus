@@ -22,7 +22,12 @@ public class PersonService {
     public Person savePerson(Person person){
         return personRepository.save(person);
     }
-
+    public List<Person> saveManyPerson(List<Person> personList) {
+        if (personList == null || personList.isEmpty()) {
+            throw new IllegalArgumentException("La lista de personas no puede estar vacía");
+        }
+        return personRepository.saveAll(personList);
+    }
     public Person updatePerson(Person person){
         Person personNew=getPersonById(person.getId());
         if (personNew != null){
