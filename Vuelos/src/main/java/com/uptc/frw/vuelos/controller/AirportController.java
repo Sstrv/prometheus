@@ -10,18 +10,32 @@ import java.util.List;
 @RestController
 @RequestMapping("/airport")
 public class AirportController {
+
     @Autowired
     private AirplaneService airplaneService;
+
     @GetMapping
     public List<Airplane> getAll(){
         return airplaneService.findAllAirplane();
     }
+
     @GetMapping("/{id}")
     public Airplane getAirplane(@PathVariable long id){
         return airplaneService.getAirplaneById(id);
     }
+
     @PostMapping
     public Airplane savePersona(@RequestBody Airplane airplane){
         return airplaneService.saveAirplane(airplane);
+    }
+
+    @PutMapping
+    public Airplane updateAirplane(@RequestBody Airplane airplane){
+        return airplaneService.updateAirplane(airplane);
+    }
+
+    @DeleteMapping
+    public void deleteAirplane(@RequestBody Long id){
+        airplaneService.deleteAirplane(id);
     }
 }
