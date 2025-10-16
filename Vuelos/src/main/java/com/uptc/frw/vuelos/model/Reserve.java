@@ -7,18 +7,20 @@ import java.util.List;
 @Entity
 @Table(name = "reserva")
 public class Reserve {
+
     @Id
     @Column(name = "id_reserva")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
+
     @Column(name = "id_persona",insertable = false,updatable = false)
     private long idPerson;
+    @Column(name = "id_vuelo",insertable = false,updatable = false)
+    private long idFlight;
     @Column(name = "cantidad")
     private int quantity;
     @Column(name = "fecha_reserva")
     private String reservesDate;
-    @Column(name = "id_vuelo", insertable = false,updatable = false)
-    private long idFlight;
 
     @OneToMany(mappedBy = "reserve")
     private List<Passenger> passengerList;
@@ -30,13 +32,6 @@ public class Reserve {
     @JoinColumn(name = "id_vuelo")
     private Flight flight;
 
-    public List<Passenger> getPassengerList() {
-        return passengerList;
-    }
-
-    public void setPassengerList(List<Passenger> passengerList) {
-        this.passengerList = passengerList;
-    }
 
     public Reserve() {
     }
@@ -71,6 +66,14 @@ public class Reserve {
         this.idFlight = idFlight;
     }
 
+    public List<Passenger> getPassengerList() {
+        return passengerList;
+    }
+
+    public void setPassengerList(List<Passenger> passengerList) {
+        this.passengerList = passengerList;
+    }
+
     public Person getPerson() {
         return person;
     }
@@ -79,9 +82,17 @@ public class Reserve {
         this.person = person;
     }
 
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
     @Override
     public String toString() {
-        return "Reserves{" +
+        return "Reserve{" +
                 "id=" + id +
                 ", idPerson=" + idPerson +
                 ", quantity=" + quantity +
