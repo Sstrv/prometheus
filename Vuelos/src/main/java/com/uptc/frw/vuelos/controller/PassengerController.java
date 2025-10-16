@@ -22,7 +22,7 @@ public class PassengerController {
         return passengerService.getPassengerById(id);
     }
 
-    @PutMapping
+    @PostMapping
     public Passenger savePassenger(@RequestBody Passenger passenger){
         return passengerService.savePassenger(passenger);
     }
