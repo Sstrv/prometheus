@@ -20,6 +20,7 @@ public class Person {
     private String address;
     @Column(name = "telefono")
     private String phone;
+
     @JsonIgnore
     @OneToOne(mappedBy = "person")
     private BoardingTicket boardingTicket;
