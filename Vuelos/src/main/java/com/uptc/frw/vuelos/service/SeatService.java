@@ -1,6 +1,6 @@
 package com.uptc.frw.vuelos.service;
 
-import com.uptc.frw.vuelos.model.Flight;
+import com.uptc.frw.vuelos.model.Airplane;
 import com.uptc.frw.vuelos.model.Seat;
 import com.uptc.frw.vuelos.repository.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +13,8 @@ public class SeatService {
 
     @Autowired
     private SeatRepository seatRepository;
-
     @Autowired
-    private FlightService flightService;
+    private AirplaneService airplaneService;
 
     public List<Seat> findAllSeats(){
         return seatRepository.findAll();
@@ -26,7 +25,7 @@ public class SeatService {
     }
 
     public Seat saveSeat(Seat seat){
-        Flight flight=flightService.getFlightById(seat.getIdSeat());
+        Airplane airplane = airplaneService.getAirplaneById(seat.getIdAirplane());
         return seatRepository.save(seat);
     }
 
