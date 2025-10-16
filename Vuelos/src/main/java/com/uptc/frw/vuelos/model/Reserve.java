@@ -19,6 +19,7 @@ public class Reserve {
     private String reservesDate;
     @Column(name = "id_vuelo", insertable = false,updatable = false)
     private long idFlight;
+
     @OneToMany(mappedBy = "reserve")
     private List<Passenger> passengerList;
     @ManyToOne
