@@ -19,6 +19,7 @@ public class Person {
     private String address;
     @Column(name = "telefono")
     private String phone;
+
     @OneToOne(mappedBy = "person")
     private BoardingTicket boardingTicket;
     @OneToOne(mappedBy = "person")
