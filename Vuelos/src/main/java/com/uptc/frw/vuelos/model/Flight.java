@@ -53,6 +53,9 @@ public class Flight{
     @OneToMany(mappedBy = "flight")
     private List<BoardingTicket> boardingTickets;
 
+    @OneToMany(mappedBy = "flight")
+    private List<Reserve> reserves;
+
     
 //    Constructor
     public Flight() {
@@ -161,6 +164,14 @@ public class Flight{
 
     public void setBoardingTickets(List<BoardingTicket> boardingTickets) {
         this.boardingTickets = boardingTickets;
+    }
+
+    public List<Reserve> getReserves() {
+        return reserves;
+    }
+
+    public void setReserves(List<Reserve> reserves) {
+        this.reserves = reserves;
     }
 
     //    ToString
