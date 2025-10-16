@@ -5,6 +5,7 @@ import com.uptc.frw.vuelos.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 @RestController
 @RequestMapping("/person")
@@ -22,6 +23,18 @@ public class PersonController {
     @PostMapping
     public Person savePersona(@RequestBody Person person){
         return personService.savePerson(person);
+    }
+    @PostMapping("allcreate")
+    public List<Person> savePersonaAllcreate(@RequestBody Person person){
+        List<Person> personList=new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
+            personList.add(person);
+        }
+        return personService.saveManyPerson(personList);
+    }
+    @PostMapping("all")
+    public List<Person> savePersonaAll(@RequestBody List<Person> person){
+        return personService.saveManyPerson(person);
     }
     @PutMapping
     public Person updatePersona(@RequestBody Person person){
