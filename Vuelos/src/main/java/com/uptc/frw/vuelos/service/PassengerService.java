@@ -28,7 +28,6 @@ public class PassengerService {
     public Passenger updatePassenger(Passenger passenger){
         Passenger newPassenger = getPassengerById(passenger.getId());
         if (newPassenger != null) {
-            newPassenger.setBoardingTicket(passenger.getBoardingTicket());
             newPassenger.setReserve(passenger.getReserve());
             newPassenger.setPerson(passenger.getPerson());
             return newPassenger;

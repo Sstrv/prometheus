@@ -2,6 +2,8 @@ package com.uptc.frw.vuelos.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "vuelos")
 public class Flight{
@@ -48,6 +50,13 @@ public class Flight{
     @JoinColumn(name = "id_avion")
     private Airplane airplane;
 
+    @OneToMany(mappedBy = "flight")
+    private List<BoardingTicket> boardingTickets;
+
+    @OneToMany(mappedBy = "flight")
+    private List<Reserve> reserves;
+
+    
 //    Constructor
     public Flight() {
     }
@@ -147,6 +156,22 @@ public class Flight{
 
     public void setAirplane(Airplane airplane) {
         this.airplane = airplane;
+    }
+
+    public List<BoardingTicket> getBoardingTickets() {
+        return boardingTickets;
+    }
+
+    public void setBoardingTickets(List<BoardingTicket> boardingTickets) {
+        this.boardingTickets = boardingTickets;
+    }
+
+    public List<Reserve> getReserves() {
+        return reserves;
+    }
+
+    public void setReserves(List<Reserve> reserves) {
+        this.reserves = reserves;
     }
 
     //    ToString
