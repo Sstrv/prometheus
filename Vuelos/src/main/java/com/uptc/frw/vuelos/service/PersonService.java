@@ -16,8 +16,29 @@ public class PersonService {
             return personRepository.findAll();
         }
     public Person getPersonById(Long id){
-        Person person=personRepository.findById(id).orElse(null);
-        return person;
+        return personRepository.findById(id).orElse(null);
     }
 
+    public Person savePerson(Person person){
+        Person personNew=personRepository.save(person);
+        return personNew;
+    }
+
+    public Person updatePerson(Person person){
+        Person personNew=getPersonById(person.getId());
+        if (personNew != null){
+            personNew.setId(person.getId());
+            personNew.setDni(person.getDni());
+            personNew.setName(person.getName());
+            personNew.setAddress(person.getAddress());
+            personNew.setPhone(person.getAddress());
+            savePerson(personNew);
+            return personNew;
+        }else{
+            throw new RuntimeException("Registro no encontrado");
+        }
+    }
+    public void deletePerson(Long id){
+        personRepository.deleteById(id);
+    }
 }
