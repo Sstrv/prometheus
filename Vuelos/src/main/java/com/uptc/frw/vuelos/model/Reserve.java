@@ -17,13 +17,16 @@ public class Reserve {
     private int quantity;
     @Column(name = "fecha_reserva")
     private String reservesDate;
-    @Column(name = "id_vuelo")
+    @Column(name = "id_vuelo", insertable = false,updatable = false)
     private long idFlight;
     @OneToMany(mappedBy = "reserve")
     private List<Passenger> passengerList;
     @ManyToOne
     @JoinColumn(name = "id_persona")
     private Person person;
+    @ManyToOne
+    @JoinColumn(name = "id_vuelo")
+    private Flight flight;
 
     public List<Passenger> getPassengerList() {
         return passengerList;
