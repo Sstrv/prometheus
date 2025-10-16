@@ -1,5 +1,6 @@
 package com.uptc.frw.vuelos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,13 +20,16 @@ public class Person {
     private String address;
     @Column(name = "telefono")
     private String phone;
-
+    @JsonIgnore
     @OneToOne(mappedBy = "person")
     private BoardingTicket boardingTicket;
+    @JsonIgnore
     @OneToOne(mappedBy = "person")
     private Passenger passenger;
+    @JsonIgnore
     @OneToMany(mappedBy = "person")
     private List<Reserve> reserves;
+    @JsonIgnore
     @OneToMany(mappedBy = "person")
     private List<CreditCard> creditCards;
 
