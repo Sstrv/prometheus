@@ -1,5 +1,7 @@
 package com.uptc.frw.vuelos.service;
 
+import com.uptc.frw.vuelos.model.Airplane;
+import com.uptc.frw.vuelos.model.Airport;
 import com.uptc.frw.vuelos.model.Flight;
 import com.uptc.frw.vuelos.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,10 @@ public class FlightService {
 
     @Autowired
     private FlightRepository repo;
+    @Autowired
+    private AirplaneService airplaneService;
+    @Autowired
+    private AirportService airportService;
 
     public List<Flight> findAllFlights(){
         return repo.findAll();
@@ -22,6 +28,9 @@ public class FlightService {
     }
 
     public Flight saveFlight(Flight flight){
+        Airplane airplane = airplaneService.getAirplaneById(flight.getIdAirplane());
+        Airport departureAirport = airportService.getAirportById(flight.getIdDepartureAirport());
+        Airport arrivalAirport = airportService.getAirportById(flight.getIdArrivalAirport());
         return repo.save(flight);
     }
 
