@@ -1,8 +1,6 @@
 package com.uptc.frw.vuelos.service;
 
-import com.uptc.frw.vuelos.model.BoardingTicket;
-import com.uptc.frw.vuelos.model.Flight;
-import com.uptc.frw.vuelos.model.Seat;
+import com.uptc.frw.vuelos.model.*;
 import com.uptc.frw.vuelos.repository.BoardingTicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +12,10 @@ public class BoardingTicketService {
 
     @Autowired
     private BoardingTicketRepository repo;
+    @Autowired
+    private PersonService personService;
+    @Autowired
+    private PassengerService passengerService;
     @Autowired
     private FlightService flightService;
     @Autowired
@@ -28,6 +30,8 @@ public class BoardingTicketService {
     }
 
     public BoardingTicket saveBoardingTicket(BoardingTicket bt){
+        Person person = personService.getPersonById(bt.getIdPerson());
+        Passenger passenger = passengerService.getPassengerById(bt.getIdPassenger());
         Flight flight = flightService.getFlightById(bt.getIdFlight());
         Seat seat = seatService.getSeatById(bt.getIdSeat());
         return repo.save(bt);
