@@ -2,6 +2,7 @@ package com.uptc.frw.vuelos.service;
 
 import com.uptc.frw.vuelos.model.Seat;
 import com.uptc.frw.vuelos.repository.SeatRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class SeatService {
 
+    @Autowired
     private SeatRepository seatRepository;
 
     public List<Seat> findAllSeats(){
