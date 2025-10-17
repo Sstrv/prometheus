@@ -25,7 +25,7 @@ public class PersonController {
         return personService.savePerson(person);
     }
     @PostMapping("allcreate")
-    public List<Person> savePersonaAllcreate(@RequestBody Person person){
+    public List<Person> savePersonaAllCreate(@RequestBody Person person){
         List<Person> personList=new ArrayList<>();
         for (int i = 0; i < 10000; i++) {
             personList.add(person);

@@ -1,5 +1,6 @@
 package com.uptc.frw.vuelos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -40,20 +41,25 @@ public class Flight{
 
     @ManyToOne
     @JoinColumn(name = "id_aeropuerto_origen")
+    @JsonIgnore
     private Airport departureAirport;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_aeropuerto_destino")
     private Airport arrivalAirport;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_avion")
     private Airplane airplane;
 
     @OneToMany(mappedBy = "flight")
+    @JsonIgnore
     private List<BoardingTicket> boardingTickets;
 
     @OneToMany(mappedBy = "flight")
+    @JsonIgnore
     private List<Reserve> reserves;
 
     
