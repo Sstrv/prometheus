@@ -33,6 +33,15 @@ docker login container-registry.oracle.com
 image: container-registry.oracle.com/database/free:latest
 ```
 o si se posee una base de datos difernte o en local quitar el servicio **Oracle**, cambiar las propiedades y el draiver de ser requerido 
-### Descipcion del sistema 
+### Flujo general del sistema
+1. La aplicación **Spring Boot** obtiene los datos desde **Oracle Database**.
+2. Calcula y agrupa métricas relevantes, como:
+   - Total de vuelos por origen y destino.
+   - Número total de personas registradas.
+3. Expone las métricas a través del endpoint `/actuator/prometheus`.
+4. **Prometheus** realiza la recolección (*scraping*) periódica de estas métricas.
+5. Los datos recolectados se almacenan como series temporales en Prometheus.
+6. **Grafana** consulta Prometheus y visualiza las métricas mediante paneles interactivos.
+7. Los dashboards permiten monitorear en tiempo real la actividad de vuelos y personas del sistema.
 
 
