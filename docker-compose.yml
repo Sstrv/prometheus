@@ -1,4 +1,18 @@
 services:
+  oracle:
+    image: container-registry.oracle.com/database/enterprise:latest
+    container_name: oracle
+    environment:
+      - ORACLE_SID=ORCLCDB
+      - ORACLE_PDB=ORCLPDB1
+      - ORACLE_PWD=oracle
+      - ORACLE_CHARACTERSET=AL32UTF8
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    restart: unless-stopped
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -17,3 +31,5 @@ services:
     depends_on:
       - prometheus
     restart: unless-stopped
+volumes:
+  oracle-data:
